@@ -25,7 +25,7 @@ const AboutSection: React.FC = () => {
           {/* Left Side: Introductory Paragraph */}
           <div className="md:w-1/2 text-center p-10  md:text-left">
             <p className="text-lg leading-loose font-sans">
-              Hello! I'm Hassan, a passionate Full-Stack Developer specializing in creating robust web applications with technologies like React.js, Next.js, Node.js, and Tailwind CSS. I thrive on bringing ideas to life through clean code and innovative solutions. My journey in web development has equipped me with a diverse skill set, allowing me to tackle challenges from front-end design to back-end logic.
+              Hello! I'm Noor, a passionate Full-Stack Developer specializing in creating robust web applications with technologies like React.js, Next.js, Node.js, and Tailwind CSS. I thrive on bringing ideas to life through clean code and innovative solutions. My journey in web development has equipped me with a diverse skill set, allowing me to tackle challenges from front-end design to back-end logic.
             </p>
           </div>
 

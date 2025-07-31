@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex justify-between items-center max-w-6xl"> {/* Added container, mx-auto, max-w-6xl */}
         {/* Your Name/Logo - Applied font-heading */}
         <Link href="/" className="text-white text-2xl font-bold font-heading" onClick={handleLinkClick}>
-          [Hassan]
+          [Noor]
         </Link>
 
         {/* Mobile Menu Button (Hamburger) */}

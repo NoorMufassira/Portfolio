@@ -27,7 +27,7 @@ const HeroSection: React.FC = () => {
         <div className="text-center md:text-left md:w-1/2" data-aos="fade-right" data-aos-delay="200">
           {/* Ensure font-heading is applied to your h1 */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 font-heading">
-            Hi, I'm Hassan
+            Hi, I'm Noor
           </h1>
           {/* Ensure font-sans is applied to your p tag */}
           <p className="text-xl sm:text-2xl mb-8 font-sans">
