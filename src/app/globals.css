@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* src/app/globals.css */
+
+/* ... (existing Tailwind CSS directives like @tailwind base, etc.) ... */
+
+html {
+  scroll-behavior: smooth;
+}
