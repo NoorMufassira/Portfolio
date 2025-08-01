@@ -19,7 +19,6 @@ const ProjectsSection: React.FC = () => {
               alt="Project 1 Thumbnail"
               width={500}
               height={300}
-              layout="responsive"
               className="w-full h-48 object-cover"
             />
             <div className="p-6">
@@ -55,7 +54,6 @@ const ProjectsSection: React.FC = () => {
               alt="Project 2 Thumbnail"
               width={500}
               height={300}
-              layout="responsive"
               className="w-full h-48 object-cover"
             />
             <div className="p-6">
@@ -91,7 +89,6 @@ const ProjectsSection: React.FC = () => {
               alt="Project 3 Thumbnail"
               width={500}
               height={300}
-              layout="responsive"
               className="w-full h-48 object-cover"
             />
             <div className="p-6">
