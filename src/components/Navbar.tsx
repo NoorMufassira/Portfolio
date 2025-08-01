@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState('skills'); // Set active item
+  const [active, setActive] = useState('skills'); // Default active item
 
   const handleLinkClick = (section: string) => {
     setIsOpen(false);
@@ -17,7 +17,6 @@ const Navbar: React.FC = () => {
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Achievements', href: '#achievements' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -45,9 +44,7 @@ const Navbar: React.FC = () => {
               }`}
             >
               <span className="relative z-10">{item.name}</span>
-              <span
-                className="absolute left-0 bottom-0 h-[2px] w-0 bg-pink-500 transition-all duration-300 ease-in-out group-hover:w-full"
-              ></span>
+              <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-pink-500 transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </Link>
           ))}
 
@@ -63,13 +60,17 @@ const Navbar: React.FC = () => {
           {/* Dark Mode Icon */}
           <button className="ml-3 text-gray-400 hover:text-white transition">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                d="M12 3v1m0 16v1m8.485-8.485l-.707.707M4.222 4.222l-.707.707M21 12h-1M4 12H3m16.071 4.243l-.707-.707M6.343 6.343l-.707-.707" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 3v1m0 16v1m8.485-8.485l-.707.707M4.222 4.222l-.707.707M21 12h-1M4 12H3m16.071 4.243l-.707-.707M6.343 6.343l-.707-.707"
+              />
             </svg>
           </button>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
