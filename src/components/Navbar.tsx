@@ -1,5 +1,3 @@
-// src/components/Navbar.tsx
-
 'use client';
 
 import React, { useState } from 'react';
@@ -7,20 +5,71 @@ import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState('skills'); // Set active item
 
-  const handleLinkClick = () => {
-    setIsOpen(false); // Close mobile menu when a link is clicked
+  const handleLinkClick = (section: string) => {
+    setIsOpen(false);
+    setActive(section);
   };
 
+  const navItems = [
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Achievements', href: '#achievements' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
   return (
-    <nav className="bg-gray-900 p-4 fixed w-full z-20 top-0 shadow-lg"> {/* Added shadow-lg for subtle depth */}
-      <div className="container mx-auto flex justify-between items-center max-w-6xl"> {/* Added container, mx-auto, max-w-6xl */}
-        {/* Your Name/Logo - Applied font-heading */}
-        <Link href="/" className="text-white text-2xl font-bold font-heading" onClick={handleLinkClick}>
-          [Noor]
+    <nav className="bg-gradient-to-r from-[#1f1235] to-[#0b0f20] p-4 fixed w-full z-50 top-0 shadow-lg">
+      <div className="container mx-auto max-w-7xl flex justify-between items-center">
+        {/* Logo */}
+        <Link href="/" onClick={() => handleLinkClick('home')}>
+          <span className="text-pink-500 text-2xl font-extrabold font-mono tracking-wide">
+            {'{'} <span className="text-white">NOOR</span> {'}'}
+          </span>
         </Link>
 
-        {/* Mobile Menu Button (Hamburger) */}
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center space-x-8 font-sans">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => handleLinkClick(item.name.toLowerCase())}
+              className={`relative group px-2 py-1 text-gray-300 transition-all duration-300 ease-in-out ${
+                active === item.name.toLowerCase()
+                  ? 'border border-dashed border-pink-500 text-white rounded-sm'
+                  : ''
+              }`}
+            >
+              <span className="relative z-10">{item.name}</span>
+              <span
+                className="absolute left-0 bottom-0 h-[2px] w-0 bg-pink-500 transition-all duration-300 ease-in-out group-hover:w-full"
+              ></span>
+            </Link>
+          ))}
+
+          {/* CV Button */}
+          <Link
+            href="/cv.pdf"
+            target="_blank"
+            className="border border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white transition px-3 py-1 rounded-sm"
+          >
+            CV
+          </Link>
+
+          {/* Dark Mode Icon */}
+          <button className="ml-3 text-gray-400 hover:text-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                d="M12 3v1m0 16v1m8.485-8.485l-.707.707M4.222 4.222l-.707.707M21 12h-1M4 12H3m16.071 4.243l-.707-.707M6.343 6.343l-.707-.707" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile menu button */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -32,25 +81,28 @@ const Navbar: React.FC = () => {
             </svg>
           </button>
         </div>
-
-        {/* Desktop Navigation Links - Applied font-sans and enhanced hover effect */}
-        <div className="hidden md:flex space-x-8"> {/* Adjusted space-x to 8 for more separation if desired, you can use 6 or 7 too */}
-          <Link href="#about" className="text-white font-semibold text-1xl hover:text-white hover:translate-y-1 transition duration-200 font-sans" onClick={handleLinkClick}>About</Link>
-          <Link href="#about" className="text-white font-semibold text-1xl hover:text-white hover:translate-y-1 transition duration-200 font-sans" onClick={handleLinkClick}>Skills</Link>
-          <Link href="#experience" className="text-white font-semibold text-1xl hover:text-white hover:translate-y-1 transition duration-200 font-sans" onClick={handleLinkClick}>Experience</Link>
-          <Link href="#projects" className="text-white font-semibold text-1xl hover:text-white hover:translate-y-1 transition duration-200 font-sans" onClick={handleLinkClick}>Projects</Link>
-          <Link href="#contact" className="text-white font-semibold text-1xl hover:text-white hover:translate-y-1  transition duration-200 font-sans" onClick={handleLinkClick}>Contact Me</Link>
-        </div>
       </div>
 
-      {/* Mobile Menu (Dropdown) - Applied font-sans */}
+      {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-gray-700 mt-2 rounded-md shadow-lg py-2">
-          <Link href="#about" className="block px-4 py-2 text-white hover:bg-gray-600 font-sans " onClick={handleLinkClick}>About</Link>
-          <Link href="#skills" className="block px-4 py-2 text-white hover:bg-gray-600 font-sans" onClick={handleLinkClick}>Skills</Link>
-          <Link href="#experience" className="block px-4 py-2 text-white hover:bg-gray-600 font-sans" onClick={handleLinkClick}>Experience</Link>
-          <Link href="#projects" className="block px-4 py-2 text-white hover:bg-gray-600 font-sans" onClick={handleLinkClick}>Projects</Link>
-          <Link href="#contact" className="block px-4 py-2 text-white hover:bg-gray-600 font-sans" onClick={handleLinkClick}>Contact Me</Link>
+        <div className="md:hidden mt-2 bg-gray-800 py-2 space-y-2 px-4 rounded-md shadow-md">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => handleLinkClick(item.name.toLowerCase())}
+              className="block text-white hover:text-pink-400 transition"
+            >
+              {item.name}
+            </Link>
+          ))}
+          <Link
+            href="/cv.pdf"
+            target="_blank"
+            className="block text-pink-500 hover:text-white transition"
+          >
+            CV
+          </Link>
         </div>
       )}
     </nav>

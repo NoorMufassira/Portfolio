@@ -1,54 +1,59 @@
-// src/components/HeroSection.tsx
-
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
 import Lottie from 'react-lottie-player';
-// Use this if your Welcme.json is in public folder:
+
 const lottieUrl = '/Welcome.json';
 
 const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative bg-gray-900 text-white min-h-screen flex items-center justify-center overflow-hidden py-16" // Removed px from here
-      data-aos="fade-in"
+      className="relative bg-gradient-to-r from-[#1f1235] to-[#0b0f20] text-white min-h-screen flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8"
     >
-      {/*
-        MODIFIED LINE:
-        - Removed 'container' class as 'max-w-6xl mx-auto px-4' effectively creates a similar container behavior.
-        - Added 'max-w-6xl' to match the Navbar's container width.
-        - Added 'px-4' to match the Navbar's general horizontal padding (from its parent 'p-4').
-        - The 'z-10 flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-16' remain for layout.
-      */}
-      <div className="max-w-6xl mx-auto px-1 z-10 flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-16">
-        {/* Left Side: Text Content */}
-        <div className="text-center md:text-left md:w-1/2" data-aos="fade-right" data-aos-delay="200">
-          {/* Ensure font-heading is applied to your h1 */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 font-heading">
-            Hi, I'm Noor
-          </h1>
-          {/* Ensure font-sans is applied to your p tag */}
-          <p className="text-xl sm:text-2xl mb-8 font-sans">
-            I'm a Full Stack Developer, Exploring the World of Code
+      <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16 z-10">
+        {/* Left Content */}
+        <div className="w-full md:w-1/2 text-center md:text-left space-y-5 sm:space-y-6">
+          <p className="text-pink-400 text-sm sm:text-base font-mono animate-fade-in">
+            Hello, I’m
           </p>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight animate-slide-up">
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-pink-400 via-white to-cyan-400 bg-clip-text text-transparent">
+                Noor.
+              </span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-pink-400 opacity-80 animate-pulse rounded-full"></span>
+            </span>
+          </h1>
+
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-200 animate-slide-up">
+            I innovate with code and
+            <br className="hidden sm:inline" />
+            shape digital experiences.
+          </h2>
+
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0 animate-fade-in delay-100">
+            I am a skilled web developer and programmer, specializing in creating robust web applications with
+            React.js, Next.js, Node.js, and TailwindCSS. Passionate about crafting efficient and user-friendly solutions.
+          </p>
+
+          <p className="text-pink-500 font-semibold text-sm sm:text-base animate-fade-in delay-200">
+            Currently seeking new opportunities and freelance projects.
+          </p>
+
           <Link
-           href="#projects"
-           className="inline-block bg-white hover:bg-white text-gray-800 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105"
-           >
+            href="#projects"
+            className="inline-block bg-white text-gray-900 font-semibold px-6 py-3 rounded-full shadow-lg hover:scale-105 hover:bg-gray-100 transition duration-300 animate-fade-in delay-300"
+          >
             View My Work
-           </Link>
+          </Link>
         </div>
 
-        {/* Right Side: Lottie Animation */}
-        <div className="md:w-1/2 flex justify-center md:justify-end" data-aos="fade-left" data-aos-delay="400">
-          <Lottie
-            loop
-            path={lottieUrl} // Using the path prop
-            play
-            style={{ width: 500, height: 500 }}
-          />
+        {/* Right: Lottie Animation */}
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end animate-fade-in">
+          <Lottie loop play path={lottieUrl} style={{ width: 350, height: 350 }} />
         </div>
       </div>
     </section>
